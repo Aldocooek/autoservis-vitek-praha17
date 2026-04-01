@@ -68,7 +68,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      background: var(--dark);
+      background: transparent;
     }
 
     /* Giant "V" letterform background */
@@ -607,7 +607,6 @@
       .hero__actions { flex-direction: column; }
       .btn { justify-content: center; }
     }
-  
     .hero-bg-photo {
       position: absolute;
       inset: 0;
@@ -616,9 +615,21 @@
       object-fit: cover;
       object-position: center 30%;
       z-index: 0;
-      opacity: 0.22;
+      opacity: 1;
       pointer-events: none;
       user-select: none;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.4) 100%
+      );
+      pointer-events: none;
     }
     </style>
 </head>
@@ -629,6 +640,7 @@
   ============================================= -->
   <section class="hero" id="hero">
     <img src="images/hero.jpg" alt="" class="hero-bg-photo" aria-hidden="true">
+    <div class="hero-bg-overlay" aria-hidden="true"></div>
     <div class="hero__letter" aria-hidden="true">V</div>
 
     <nav class="nav">
